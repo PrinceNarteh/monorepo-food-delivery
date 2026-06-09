@@ -1,9 +1,10 @@
 import { ConfigifyModule } from '@itgorillaz/configify';
 import { Module } from '@nestjs/common';
+import { AppController } from './config/app.controller';
 
 @Module({
   imports: [ConfigifyModule.forRootAsync()],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}

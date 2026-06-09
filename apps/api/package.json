@@ -20,6 +20,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@food-delivery/types": "workspace:*",
     "@itgorillaz/configify": "^4.1.2",
     "@nestjs/common": "^11.0.1",
     "@nestjs/core": "^11.0.1",
