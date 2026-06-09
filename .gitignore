@@ -1,0 +1,84 @@
+# ==============================================================================
+# 1. MONOREPO TOOLING & CACHING
+# ==============================================================================
+.turbo/
+.nx/
+.lerna/
+*.tsbuildinfo
+
+# ==============================================================================
+# 2. DEPENDENCY DIRECTORIES
+# ==============================================================================
+node_modules/
+jspm_packages/
+web_modules/
+.pnp/
+.pnp.js
+
+# ==============================================================================
+# 3. BUILD ARTIFACTS & OUTPUTS (Global Matches)
+# ==============================================================================
+dist/
+build/
+out/
+.next/
+.nuxt/
+.docusaurus/
+.serverless/
+
+# ==============================================================================
+# 4. ENVIRONMENT VARIABLES & SECRETS (CRITICAL)
+# ==============================================================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+*.pem
+*.key
+*.cert
+
+# ==============================================================================
+# 5. DIAGNOSTICS, LOGS & COVERAGE
+# ==============================================================================
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Test Coverage
+coverage/
+*.lcov
+.nyc_output
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# ==============================================================================
+# 6. SYSTEM & IDE FILES
+# ==============================================================================
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
