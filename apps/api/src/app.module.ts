@@ -1,6 +1,6 @@
-import { ConfigifyModule } from '@itgorillaz/configify';
 import { Module } from '@nestjs/common';
-import { AppController } from './config/app.controller';
+import { ConfigifyModule } from '@itgorillaz/configify';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [ConfigifyModule.forRootAsync()],
