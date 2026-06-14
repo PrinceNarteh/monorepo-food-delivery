@@ -1,5 +1,5 @@
-import { Module } from '@nestjs/common';
 import { ConfigifyModule } from '@itgorillaz/configify';
+import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 
 @Module({
