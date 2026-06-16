@@ -1,4 +1,5 @@
-import { boolean, pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
+import { boolean, pgTable, text, uuid } from 'drizzle-orm/pg-core';
+import { timestamps } from './helpers.schema';
 import { users } from './user.schema';
 
 export const restaurants = pgTable('restaurants', {
@@ -13,8 +14,7 @@ export const restaurants = pgTable('restaurants', {
   cuisineType: text('cuisine_type').notNull(),
   isOpen: boolean('is_open').default(false).notNull(),
   rating: text('rating').default('0'),
-  createdAt: timestamp('created_at').defaultNow().notNull(),
-  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+  ...timestamps,
 });
 
 export type Restaurant = typeof restaurants.$inferSelect;

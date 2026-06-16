@@ -1,11 +1,5 @@
-import {
-  boolean,
-  numeric,
-  pgTable,
-  text,
-  timestamp,
-  uuid,
-} from 'drizzle-orm/pg-core';
+import { boolean, numeric, pgTable, text, uuid } from 'drizzle-orm/pg-core';
+import { timestamps } from './helpers.schema';
 import { restaurants } from './restaurant.schema';
 
 export const menuCategories = pgTable('menu_categories', {
@@ -14,7 +8,7 @@ export const menuCategories = pgTable('menu_categories', {
     .notNull()
     .references(() => restaurants.id, { onDelete: 'cascade' }),
   name: text('name').notNull(),
-  createdAt: timestamp('created_at').defaultNow().notNull(),
+  ...timestamps,
 });
 
 export type MenuCategory = typeof menuCategories.$inferSelect;
@@ -33,8 +27,7 @@ export const menuItem = pgTable('menu_item', {
   price: numeric('price', { precision: 10, scale: 2 }).notNull(),
   imageUrl: text('image_url'),
   isAvailable: boolean('is_available').default(true),
-  createdAt: timestamp('created_at').defaultNow().notNull(),
-  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+  ...timestamps,
 });
 
 export type MenuItem = typeof menuItem.$inferSelect;
