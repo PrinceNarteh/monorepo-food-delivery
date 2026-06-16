@@ -1,4 +1,17 @@
-import { pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
+import {
+  boolean,
+  pgEnum,
+  pgTable,
+  text,
+  timestamp,
+  uuid,
+} from 'drizzle-orm/pg-core';
+
+export const userRoleEnum = pgEnum('user_role', [
+  'DRIVER',
+  'CUSTOMER',
+  'RESTAURANT_OWNER',
+]);
 
 export const users = pgTable('users', {
   id: uuid('id').primaryKey().defaultRandom(),
@@ -6,7 +19,11 @@ export const users = pgTable('users', {
   lastName: text('last_name').notNull(),
   email: text('email').notNull().unique(),
   password: text('password').notNull(),
-  createAt: timestamp('created_at').defaultNow(),
+  role: userRoleEnum('role').notNull().default('CUSTOMER'),
+  pushToken: text('push_token'),
+  isOnline: boolean('is_online').default(false).notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });
 
 export type User = typeof users.$inferSelect;
